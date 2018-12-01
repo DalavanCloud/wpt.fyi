@@ -96,7 +96,6 @@ func TestHandleCheckRunEvent_Created_Pending(t *testing.T) {
 	aeAPI := sharedtest.NewMockAppEngineAPI(mockCtrl)
 	aeAPI.EXPECT().Context().AnyTimes().Return(context.Background())
 	checksAPI := NewMockAPI(mockCtrl)
-	checksAPI.EXPECT().ScheduleResultsProcessing(sha, sharedtest.SameProductSpec("chrome"))
 
 	processed, err := handleCheckRunEvent(aeAPI, checksAPI, payload)
 	assert.Nil(t, err)
